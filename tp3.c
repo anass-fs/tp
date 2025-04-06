@@ -145,23 +145,23 @@ Noeud* modifierP(Noeud* debut, int pos, int valeur) {
 }
 Noeud* tri(Noeud* debut) {
     if (debut == NULL || debut->suivant == NULL) {
-        return debut;  // Si la liste est vide ou a un seul élément, pas besoin de trier
+        return debut; 
     }
 
     Noeud* i, * j, * temp;
     int tmp_val;
 
-    // On parcourt toute la liste avec deux pointeurs
+   
     for (i = debut; i != NULL; i = i->suivant) {
         for (j = i->suivant; j != NULL; j = j->suivant) {
-            // Comparer les valeurs
+           
             if (i->valeur > j->valeur) {
-                // Échanger les valeurs
+             
                 tmp_val = i->valeur;
                 i->valeur = j->valeur;
                 j->valeur = tmp_val;
 
-                // Échanger les pointeurs "suivant" et "precedent"
+               
                 if (i->precedent != NULL) {
                     i->precedent->suivant = j;
                 }
@@ -169,7 +169,7 @@ Noeud* tri(Noeud* debut) {
                     j->suivant->precedent = i;
                 }
 
-                // Échanger les pointeurs "suivant" et "precedent" de i et j
+               
                 temp = i->suivant;
                 i->suivant = j->suivant;
                 j->suivant = temp;
@@ -178,12 +178,10 @@ Noeud* tri(Noeud* debut) {
                 i->precedent = j->precedent;
                 j->precedent = temp;
 
-                // Si i devient le premier noeud
                 if (i->precedent == NULL) {
                     debut = i;
                 }
 
-                // Si j devient le premier noeud
                 if (j->precedent == NULL) {
                     debut = j;
                 }
@@ -198,13 +196,13 @@ int main() {
     Noeud* debut = NULL;
     int choix, valeur, pos;
 
-    // Initialisation de la liste avec les valeurs 30, 10, 20, 40
-    debut = ajouterF(debut, 30);  // Ajoute 30 à la fin
-    debut = ajouterF(debut, 10);  // Ajoute 10 à la fin
-    debut = ajouterF(debut, 20);  // Ajoute 20 à la fin
-    debut = ajouterF(debut, 40);  // Ajoute 40 à la fin
+  
+    debut = ajouterF(debut, 30);  
+    debut = ajouterF(debut, 10);
+    debut = ajouterF(debut, 20);  
+    debut = ajouterF(debut, 40);  
 
-    // Afficher la liste initiale
+   
     printf("Liste initiale :\n");
     affiche(debut);
 
